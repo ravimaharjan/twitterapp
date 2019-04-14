@@ -1,0 +1,4 @@
+
+export const LOAD_TWEETS_SUCCESS = "LOAD_TWEETS_SUCCESS";
+export const REGISTER_USER = "REGISTER_USER";
+export const CLEAR_TWEETS = "CLEAR_TWEETS";
