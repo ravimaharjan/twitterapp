@@ -1,5 +1,5 @@
 import * as types from '../actions/actionTypes';
-import { tweetConstants } from "../constants/tweetconstant";
+import { tweetConstants } from "../constants/tweet.constant";
 // import initialState from './initialState';
 
 
@@ -8,7 +8,6 @@ const initState = {
 }
  function tweetReducer(state=initState, action){
     switch(action.type) {
-
         case types.LOAD_TWEETS_SUCCESS:
             return {
                 ...state,
@@ -20,7 +19,6 @@ const initState = {
                 tweets: [...action.tweets]
             }
         case tweetConstants.CLEAR_TWEETS:
-            console.log("clear reducer reached");
             return {
                 ...state,
                 tweets: [],

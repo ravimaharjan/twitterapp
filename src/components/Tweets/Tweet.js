@@ -15,6 +15,7 @@ class Tweet extends Component {
                     <br/>
                     Location : { tweet.twitter.location}
                     <br/>
+                    
                     Followers Count: { tweet.twitter.followers_count}
                 </div>
             </div>
@@ -24,7 +25,6 @@ class Tweet extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     let tweet_id = ownProps.match.params.tweet_id;
-    console.log(tweet_id)
     return {
         tweet: state.tweets.find(tweet => tweet.id = tweet_id)
     }

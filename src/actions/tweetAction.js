@@ -1,6 +1,6 @@
 
 import tweetApi from '../api/tweetApi';
-import { tweetConstants } from '../constants/tweetconstant';
+import { tweetConstants } from '../constants/tweet.constant';
 
 export const tweetActions = {
   loadTweets,
@@ -16,7 +16,7 @@ function loadTweets() {
       dispatch(loadTweetsFail(error.toString()))
     });
   };
-  function loadTweetsSuccess(tweets) { return { type: tweetConstants.LOAD_TWEETS_SUCCESS, tweets: tweets} }
+  // function loadTweetsSuccess(tweets) { return { type: tweetConstants.LOAD_TWEETS_SUCCESS, tweets: tweets} }
 }
 
 function searchTweets(searchText) {
@@ -33,7 +33,6 @@ function searchTweets(searchText) {
 
 function clearTweets() {
   return function(dispatch){
-    console.log("clear dispatch called")
     dispatch({
       type: tweetConstants.CLEAR_TWEETS,
       tweets: []

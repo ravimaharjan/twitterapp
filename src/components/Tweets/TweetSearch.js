@@ -41,14 +41,11 @@ class TweetSearch extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        tweets: state.tweets
+        tweets: state.tweetReducer.tweets
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    // return {
-    //     searchTweets: tweetActions.searchTweets
-    // }
     return {
         searchTweets: (searchText) => {
             dispatch(tweetActions.searchTweets(searchText))

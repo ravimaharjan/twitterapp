@@ -14,9 +14,7 @@ class TweetsPage extends React.Component {
             hideSearch: true
         }
     }
-
     componentDidMount() {
-        // axios.get("https://jsonplaceholder.typicode.com/todos")
         this.props.loadTweets()
     }
     handleClearTweets = (e) => {
@@ -43,6 +41,7 @@ class TweetsPage extends React.Component {
 
     render() {
         let state = this.state;
+        console.log(state)
         return (
             <div className="col-md-12">
                 <div>
@@ -55,13 +54,11 @@ class TweetsPage extends React.Component {
                         <div id="clearTweets" onClick={this.handleClearTweets}>Clear Tweets</div>
                     </div>
                     <div>
+                    </div>
+                    <div>
                         {state.hideSearch ? <TweetList tweets={this.props.tweets} /> : <TweetSearch/>}
                     </div>
-                    {/* <div style="float: right">
-                        <div className="col-md-4">
-                            <TweetList tweets={this.props.tweets} />
-                        </div>
-                    </div> */}
+    
                 </div>
 
             </div>
@@ -74,19 +71,16 @@ state from the store whenever state has changed and make data from that data
  available to the component as props
  */
 
-// const mapStateToProps = (state) => ({
-//     tweets: state.tweets
-// })
 
 const mapStateToProps = (state) => {
     return {
-        tweets: state.tweets
+        tweets: state.tweetReducer.tweets
     };
 }
 const mapDispatchToProps = (dispatch) => {
     return {
         loadTweets: (all) => {
-            dispatch(tweetActions.loadTweets(all))
+            dispatch(tweetActions.loadTweets())
         },
         clearTweets: () => {
             dispatch(tweetActions.clearTweets())
@@ -94,10 +88,6 @@ const mapDispatchToProps = (dispatch) => {
         }
     }
 }
-
-// const mapDispatchToProps = {
-//     loadTweets,
-// }
 
 // Tweets.propTypes = {
 //     tweets: PropTypes.array.isRequired

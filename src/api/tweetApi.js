@@ -7,8 +7,6 @@ class TweetApi {
     return axios.get(api).then(response => {
       return response.data;
     }).catch(error => {
-      console.log("error tweetapi")
-      console.log(error)
       return error;
     });
   }
@@ -17,8 +15,6 @@ class TweetApi {
     return axios.get(api+searchText).then((response) =>{
       return response.data
     }).catch((error)=>{
-      console.log("Error occured during Tweet search")
-      console.log(error)
       return error;
     })
   }

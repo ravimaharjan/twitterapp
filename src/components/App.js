@@ -6,8 +6,8 @@ import About from './About';
 import Category from './Category';
 import TweetsPage from './Tweets/TweetsPage';
 import Tweet from './Tweets/Tweet';
-import UserRegister from "./UserRegister";
-
+import UserRegister from './UserAccount/UserRegister';
+import UserLogin from './UserAccount/UserLogin';
 const RouteConfig = () => (
   <Switch>
     <Route exact={true} path='/' component={Home} />
@@ -15,6 +15,7 @@ const RouteConfig = () => (
     <Route path='/category' component={Category} />
     <Route path='/about' component={About} />
     <Route path='/register' component={UserRegister} />
+    <Route path='/login' component={UserLogin} />
     <Route path="/:tweet_id" component= {Tweet} />
   </Switch>
 )

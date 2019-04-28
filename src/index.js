@@ -8,12 +8,17 @@ import App from './components/App';
 import configureStore from './store/configureStore';
 import rootReducer from "./reducers/rootReducer";
 import tweetReducer from "./reducers/tweetReducer";
-import { createStore, applyMiddleware } from 'redux';
+import userAccountReducer from "./reducers/userAccountReducer";
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
 // const store = configureStore();
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
-    tweetReducer,
-    applyMiddleware(thunk)
+    combineReducers({ tweetReducer, userAccountReducer }),
+    composeEnhancers(
+        applyMiddleware(thunk)
+    )
 );
 ReactDOM.render(
     <Provider store={store}>

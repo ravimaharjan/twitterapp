@@ -24,8 +24,8 @@ const TweetList = ({ tweets }) => {
     )
 };
 
-TweetList.propTypes = {
-    tweets: PropTypes.array.isRequired
-};
+// TweetList.propTypes = {
+//     tweets: PropTypes.array.isRequired
+// };
 
 export default TweetList;

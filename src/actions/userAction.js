@@ -1,34 +1,29 @@
 import userApi from "../api/userApi"
-import { userConstant } from "../constants/userconstant";
+import { userAccountConstant } from "../constants/userAccount.constant";
 
-
-
-function registerUser(props) {
+export function registerUser(props) {
     return (dispatch) => {
-        console.log("registerUser called")
-        userApi.registerUser(props).then(response=>
+        return userApi.registerUser(props).then(response => {
             dispatch(registerUserSuccess())
-
-        ).catch(error=>{
-            dispatch(registerUserFail())
+        }).catch(error => {
+            dispatch(registerUserFail(error))
         })
     }
 }
 
-export function registerUserSuccess(){
+export function registerUserSuccess() {
     return {
-        type: userConstant.USER_REGISTER_SUCCESS
+        type: userAccountConstant.USER_REGISTER_SUCCESS
     }
 }
 
-export function registerUserFail(){
+export function registerUserFail(error) {
     return {
-        type: userConstant.USER_REGISTER_FAIL
+        type: userAccountConstant.USER_REGISTER_FAIL,
+        error: error
     }
 }
 
 export const userAction = {
     registerUser
 };
-
-export default registerUser;
