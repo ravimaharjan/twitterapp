@@ -25,7 +25,8 @@ function userAccountReducer(state=initialState, action) {
                 ...state,
                 userLoggedIn: true,
                 loggingIn: false,
-                loggedInUser: action.loggedInUser
+                loggedInUser: action.loginDetail.username,
+                token: action.loginDetail.token
             }
         case userAccountConstant.USER_LOGIN_REQUEST:
             return {

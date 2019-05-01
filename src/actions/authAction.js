@@ -4,12 +4,13 @@ import { userAccountConstant } from "../constants/userAccount.constant";
 export function login(userinfo) {
     return function (dispatch) {
         authApi.login(userinfo).then(response=> {
-            console.log('async request complete')
-            dispatch(logingUserSuccess(response.user.username))
+            dispatch(logingUserSuccess({
+                username: response.loginData.username, 
+                token: response.loginData.token
+            }))
         }).catch(error=>{
             dispatch(loginUserFail(error))
         })
-        console.log("returned")
     }
 }
 
@@ -19,10 +20,10 @@ function logging() {
     }
 }
 
-function logingUserSuccess(loggedInUser){
+function logingUserSuccess(loginDetail){
     return {
         type: userAccountConstant.USER_LOGIN_SUCCESS,
-        loggedInUser: loggedInUser
+        loginDetail: loginDetail
     }
 }
 

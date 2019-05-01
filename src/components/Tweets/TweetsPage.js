@@ -18,7 +18,6 @@ class TweetsPage extends React.Component {
         this.props.loadTweets()
     }
     handleClearTweets = (e) => {
-        console.log("clearing tweets");
         this.props.clearTweets()
     }
 
@@ -41,7 +40,6 @@ class TweetsPage extends React.Component {
 
     render() {
         let state = this.state;
-        console.log(state)
         return (
             <div className="col-md-12">
                 <div>

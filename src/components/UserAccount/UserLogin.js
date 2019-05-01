@@ -43,8 +43,7 @@ class UserLogin extends React.Component {
     }
 
     render() {
-        console.log('props', this.props)
-        const { loggingIn, userLoggedIn, loggedInUser } = this.props
+        const { loggingIn, userLoggedIn, loggedInUser} = this.props;
         const { submitted, username, password } = this.state
         return (
             <div>

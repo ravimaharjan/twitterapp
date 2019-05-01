@@ -11,15 +11,21 @@ import tweetReducer from "./reducers/tweetReducer";
 import userAccountReducer from "./reducers/userAccountReducer";
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
-// const store = configureStore();
+import { getAuthState, saveAuthState } from './utils/localstorage';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
     combineReducers({ tweetReducer, userAccountReducer }),
+    { ...getAuthState() },
     composeEnhancers(
         applyMiddleware(thunk)
     )
 );
+
+store.subscribe(() => {
+    saveAuthState(store.getState());
+})
+
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>

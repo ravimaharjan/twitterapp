@@ -1,9 +1,7 @@
 import axios from 'axios';
+axios.defaults.headers.common['Authorization'] = localStorage.getItem('token')
 
 function login(userinfo) {
-    console.log({userinfo})
-
-    console.log()
     return axios({
         url: 'http://localhost:3001/api/v1/auth/login/',
         method: 'POST',
@@ -14,7 +12,6 @@ function login(userinfo) {
         config: { header: { 'Content-Type': 'application/json' } }
     }).then(response => response.data)
         .catch(error => {
-            console.log("User Login failed.")
             return error
         })
 }

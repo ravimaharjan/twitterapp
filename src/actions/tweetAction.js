@@ -1,5 +1,5 @@
 
-import tweetApi from '../api/tweetApi';
+import { getAllTweets, searchTweetsFromApi } from '../api/tweetApi';
 import { tweetConstants } from '../constants/tweet.constant';
 
 export const tweetActions = {
@@ -10,7 +10,7 @@ export const tweetActions = {
 
 function loadTweets() {
   return function(dispatch) {
-    return tweetApi.getAllTweets().then(response => {
+    return getAllTweets().then(response => {
       dispatch(loadTweetsSuccess(response.tweets));
     }).catch(error => {
       dispatch(loadTweetsFail(error.toString()))
@@ -21,7 +21,7 @@ function loadTweets() {
 
 function searchTweets(searchText) {
   return function(dispatch) {
-    return tweetApi.searchTweets(searchText).then(response=>{
+    return searchTweetsFromApi(searchText).then(response=>{
       dispatch(loadTweetSearchSuccess(response.tweets));
     }).catch(error=>{
       dispatch(loadTweetSearchFail(error.toString()))
