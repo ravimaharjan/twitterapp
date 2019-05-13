@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-
+import { getAuthState } from './../utils/localstorage';
 
 const api = 'http://localhost:3001/api/v1/tweets/'
 // class TweetApi {
@@ -22,7 +22,9 @@ export function searchTweetsFromApi(searchText) {
 
 
 export function getAllTweets() {
-  axios.defaults.headers.common['Authorization'] = localStorage.getItem('token')
+  const authState = getAuthState()
+  axios.defaults.headers.common['Authorization'] = authState['authReducer']['token'];
+  console.log('auth state', authState)
   return axios({
       url: 'http://localhost:3001/api/v1/tweets/',
       method: 'GET',

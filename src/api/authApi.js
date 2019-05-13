@@ -1,7 +1,11 @@
 import axios from 'axios';
-axios.defaults.headers.common['Authorization'] = localStorage.getItem('token')
+import { getAuthState } from './../utils/localstorage';
+
+
 
 function login(userinfo) {
+    const authState = getAuthState()
+    axios.defaults.headers.common['Authorization'] = authState['authReducer']['token'];
     return axios({
         url: 'http://localhost:3001/api/v1/auth/login/',
         method: 'POST',
