@@ -79,9 +79,9 @@ class UserLogin extends React.Component {
 const mapStateToProps = (state) => {
     return {
         ...state,
-        userLoggedIn: state.userAccountReducer.userLoggedIn,
-        loggedInUser: state.userAccountReducer.loggedInUser,
-        loggingIn: state.userAccountReducer.loggingIn
+        userLoggedIn: state.authReducer.userLoggedIn,
+        loggedInUser: state.authReducer.loggedInUser,
+        loggingIn: state.authReducer.loggingIn
 
     }
 }

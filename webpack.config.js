@@ -5,44 +5,38 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: "bundle.js",
-        publicPath: "/dist"
+        publicPath: "/"
     },
     module: {
         rules: [
             {
-                test: '/\.js$/',
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'
                 }
-            }
+            },
+            {
+                test: /\.html$/,
+                use: [
+                  {
+                    loader: "html-loader"
+                  }
+                ]
+              }
 
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './public/index.html'
+            template: './public/index.html',
+            filename: './index.html',
+            favicon: './public/favicon.ico'
         })
-    ]
+    ],
+    // devServer: {
+    //     contentBase: path.join(__dirname, 'dist'),
+    // }
 }
 
 
-var path = require('path');
-var webpack = require('webpack');
-
-module.exports = {
-  entry: './main.js',
-  output: { path: __dirname, filename: 'bundle.js' },
-  module: {
-    loaders: [
-      {
-        test: /.jsx?$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        query: {
-          presets: ['es2015', 'react']
-        }
-      }
-    ]
-  },
-};

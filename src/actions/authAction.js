@@ -23,7 +23,8 @@ function logging() {
 function logingUserSuccess(loginDetail){
     return {
         type: userAccountConstant.USER_LOGIN_SUCCESS,
-        loginDetail: loginDetail
+        username: loginDetail.username,
+        token: loginDetail.token
     }
 }
 

@@ -9,7 +9,11 @@ function login(userinfo) {
             username: userinfo.username,
             password: userinfo.password
         },
-        config: { header: { 'Content-Type': 'application/json' } }
+        // config: { header: { 'Content-Type': 'application/json' } }
+        config: { header: {
+            'Accept': 'application/json',
+            'Content-Type': 'multipart/form-data',
+          } }
     }).then(response => response.data)
         .catch(error => {
             return error

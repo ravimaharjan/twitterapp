@@ -13,11 +13,13 @@ import { connect } from 'react-redux';
 
 const RouteConfig = ({ isAuthenticated }) => (
   <Switch>
-    <ProtectedView exact={true} isAuthenticated={isAuthenticated} path='/' component={Home} />
+
+    <ProtectedView exact={true} path='/' isAuthenticated={ isAuthenticated } component={Home} />
     <ProtectedView path='/tweets' isAuthenticated={isAuthenticated} component={TweetsPage} />
     <ProtectedView path='/category' isAuthenticated={isAuthenticated} component={Category} />
     <ProtectedView path='/about' isAuthenticated={isAuthenticated} component={About} />
-    <ProtectedView path='/register' isAuthenticated={isAuthenticated} component={UserRegister} />
+    <Route path='/register' component= {UserRegister} />
+    
     <Route path='/login' component={UserLogin} />
     <ProtectedView path="/:tweet_id" isAuthenticated={isAuthenticated} component={Tweet} />
   </Switch>
@@ -32,7 +34,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        <RouteConfig isAuthenticated={this.props.state.userLoggedIn} />
+        <RouteConfig isAuthenticated={this.props.userLoggedIn} />
       </div>
     );
   }
@@ -40,7 +42,8 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-      state: state.userAccountReducer
+      ...state,
+      userLoggedIn: state.authReducer.userLoggedIn
   }
 }
 
