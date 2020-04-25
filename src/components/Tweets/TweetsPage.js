@@ -17,6 +17,7 @@ class TweetsPage extends React.Component {
     componentDidMount() {
         this.props.loadTweets()
     }
+
     handleClearTweets = (e) => {
         this.props.clearTweets()
     }
@@ -27,7 +28,6 @@ class TweetsPage extends React.Component {
             hideSearch: true,
             hideTweetList: false
         })
-
     }
 
     displayTweetsSearch = () => {
@@ -56,19 +56,11 @@ class TweetsPage extends React.Component {
                     <div>
                         {state.hideSearch ? <TweetList tweets={this.props.tweets} /> : <TweetSearch/>}
                     </div>
-    
                 </div>
-
             </div>
         );
     }
 }
-
-/* The mapStateToProps function has a very important job: receive application 
-state from the store whenever state has changed and make data from that data
- available to the component as props
- */
-
 
 const mapStateToProps = (state) => {
     return {
@@ -87,10 +79,9 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-// Tweets.propTypes = {
-//     tweets: PropTypes.array.isRequired
-// };
+TweetsPage.propTypes = {
+    tweets: PropTypes.array.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(TweetsPage)
-// export default Tweets
 

@@ -10,6 +10,7 @@ import UserRegister from './UserAccount/UserRegister';
 import UserLogin from './UserAccount/UserLogin';
 import { ProtectedView } from "./ProtectedView";
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
 
 const RouteConfig = ({ isAuthenticated }) => (
   <Switch>
@@ -25,6 +26,10 @@ const RouteConfig = ({ isAuthenticated }) => (
   </Switch>
 )
 
+RouteConfig.propTypes = {
+    isAuthenticated: PropTypes.bool
+}
+
 class App extends Component {
   constructor() {
     super()
@@ -38,6 +43,10 @@ class App extends Component {
       </div>
     );
   }
+}
+
+App.propTypes = {
+    userLoggedIn: PropTypes.bool
 }
 
 function mapStateToProps(state) {

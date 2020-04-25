@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from "react-redux";
 import TweetList from "./TweetList";
-import { tweetActions} from "../../actions/tweetAction";
+import { tweetActions } from "../../actions/tweetAction";
 
 class TweetSearch extends React.Component {
     constructor() {
@@ -27,8 +27,8 @@ class TweetSearch extends React.Component {
                 <div className="searchBar">
                     <h2> This is search page.</h2>
                     <label >Tweet keyword</label>
-                    
-                    <input type="text" value={this.state.searchText} onChange={ this.handleTextChange } name="tweetText"  />
+
+                    <input type="text" value={this.state.searchText} onChange={this.handleTextChange} name="tweetText" />
                     <button onClick={this.handleSearchTweet}>Search Tweet</button>
                 </div>
                 <div className="tweetResults">
@@ -49,10 +49,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         searchTweets: (searchText) => {
             dispatch(tweetActions.searchTweets(searchText))
-            // return {
-            //     type: "SEARCH_TWEETS",
-            //     searchText: searchText
-            // }
         }
     }
 }

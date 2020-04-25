@@ -4,27 +4,23 @@ import { userAccountConstant } from "../constants/userAccount.constant";
 export function login(userinfo) {
     return function (dispatch) {
         authApi.login(userinfo).then(response=> {
-            dispatch(logingUserSuccess({
-                username: response.loginData.username, 
-                token: response.loginData.token
-            }))
+            dispatch(logingUserSuccess(userinfo, response.token))
         }).catch(error=>{
+            console.log(error)
             dispatch(loginUserFail(error))
         })
     }
 }
 
-function logging() {
-    return {
-        type: userAccountConstant.USER_LOGIN_REQUEST
-    }
-}
 
-function logingUserSuccess(loginDetail){
+function logingUserSuccess(loginDetail, token){
     return {
         type: userAccountConstant.USER_LOGIN_SUCCESS,
-        username: loginDetail.username,
-        token: loginDetail.token
+        payload: {
+            username: loginDetail.username,
+            token: token
+        }
+
     }
 }
 

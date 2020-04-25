@@ -4,8 +4,6 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from './components/App';
-import configureStore from './store/configureStore';
-import rootReducer from "./reducers/rootReducer";
 import tweetReducer from "./reducers/tweetReducer";
 import authReducer from "./reducers/authReducer";
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
@@ -28,11 +26,11 @@ const store = createStore(
 );
 
 store.subscribe(() => {
-    console.log('state changed ', store.getState())
     saveAuthState(store.getState());
 })
 
 ReactDOM.render(
+
     <Provider store={ store }>
         <BrowserRouter>
             <App />

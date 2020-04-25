@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import PropTypes from 'prop-types'
 
 class Tweet extends Component {
     render() {
@@ -21,6 +21,10 @@ class Tweet extends Component {
             </div>
         )
     }
+}
+
+Tweet.propTypes = {
+    tweet: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state, ownProps) => {

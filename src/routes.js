@@ -13,13 +13,13 @@ import Contact from './components/Category';
 // import auth from './auth/authenticator';
 
 export default (
-  <BrowserRouter>
-      <Route exact path="/" component={App}>
-        <Route path='/Home' component={Home}></Route>
-        <Route path='/contact' component={Contact}></Route>
-        <Route path='/about' component={About}></Route>
-      </Route>
-  </BrowserRouter>
+    <BrowserRouter>
+        <Route exact path="/" component={App}>
+            <Route path='/Home' component={Home}></Route>
+            <Route path='/contact' component={Contact}></Route>
+            <Route path='/about' component={About}></Route>
+        </Route>
+    </BrowserRouter>
 );
 
 // function requireAuth(nextState, replace) {

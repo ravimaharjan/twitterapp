@@ -8,11 +8,11 @@ export const ProtectedView = ({ component: Component, isAuthenticated, ...rest }
         <Route
             {...rest}
             render={props => isAuthenticated ? <Component {...props} /> :
-                    <Redirect to={{
-                        pathname: '/login',
-                        state: { from: props.location }
-                        }}
-                    />
+                <Redirect to={{
+                    pathname: '/login',
+                    state: { from: props.location }
+                }}
+                />
             }
         />
     )
