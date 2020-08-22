@@ -49,7 +49,7 @@ class UserLogin extends React.Component {
             <div>
                 <form onSubmit={this.handleSubmit} >
                     <div>
-                        <label htmlFor="username">Username</label>
+                        <label htmlFor="username" style={{ width:100}}>Username</label>
                         <input type="text" name="username" value={username} onChange={this.handleChange} />
                         {submitted && !username &&
                             <div className="help-block">Username is required</div>
@@ -58,7 +58,7 @@ class UserLogin extends React.Component {
                     </div>
 
                     <div>
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password" style={{ width:100}}>Password</label>
                         <input type="text" name="password" value={ password } onChange={this.handleChange} />
                         {submitted && !password &&
                             <div className="help-block">Password is required</div>
@@ -67,7 +67,6 @@ class UserLogin extends React.Component {
                     <div>
                         <button>Submit</button>
                         <button onClick={this.handleChange}>Cancel</button>
-                        <Link to="/register" className="btn btn-link">Register</Link>
                     </div>
                     {loggingIn ? <div className=""> Logging In </div> : null }
                     { userLoggedIn ? <div>You have successfully logged in. Welcome { loggedInUser }</div>: null }

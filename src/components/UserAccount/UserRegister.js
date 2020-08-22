@@ -33,22 +33,22 @@ class UserRegister extends React.Component {
             <div>
                 <form onSubmit={this.handleSubmit} >
                     <div>
-                        <label htmlFor="username">Username</label>
+                        <label htmlFor="username" style={{ width:100 }}>Username</label>
                         <input type="text" value={this.state.name} onChange={this.handleChange} name="username" />
                     </div>
                     <div>
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password" style={{ width:100}}>Password</label>
                         <input type="text" name="password" onChange={this.handleChange}></input>
                     </div>
                     <div>
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="email" style={{ width:100}}>Email</label>
                         <input type="text" name="email" onChange={this.handleChange}></input>
                     </div>
                     <div>
-                        <button >Register</button>
+                        <button >Register</button> {this.state.userRegisterSuccess ? <h1>user creation success </h1> : <span>error</span>}
                     </div>
                     <div>
-                        {this.state.userRegisterSuccess ? <h1>user creation success </h1> : <span>error</span>}
+                        
                     </div>
                 </form>
             </div>

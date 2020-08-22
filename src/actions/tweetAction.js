@@ -16,7 +16,6 @@ function loadTweets() {
             dispatch(loadTweetsFail(error.toString()))
         });
     };
-    // function loadTweetsSuccess(tweets) { return { type: tweetConstants.LOAD_TWEETS_SUCCESS, tweets: tweets} }
 }
 
 function searchTweets(searchText) {

@@ -4,7 +4,7 @@ import axios from 'axios';
 const registerUser = (user) => {
     return axios({
         method: 'POST',
-        url: 'http://localhost:3001/api/v1/auth/register/',
+        url: 'http://localhost:3001/api/v1/user',
         data: {
             username: user.username,
             email: user.email,
